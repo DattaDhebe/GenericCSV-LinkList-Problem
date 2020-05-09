@@ -13,4 +13,15 @@ public class LinkListTest {
         String result = linkList.toPrint();
         Assert.assertEquals("2 4 ", result);
     }
+
+    @Test
+    public void givenString_ShouldAddToLinkList() {
+        LinkList<String> linkList = new LinkList();
+        linkList.toAdd("Datta");
+        linkList.toAdd("Dhebe");
+        String result = linkList.toPrint();
+        Assert.assertEquals("Datta Dhebe ", result);
+    }
+
+
 }
