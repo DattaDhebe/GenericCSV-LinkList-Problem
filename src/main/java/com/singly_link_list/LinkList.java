@@ -10,6 +10,10 @@ public class LinkList<T extends Comparable> {
             data = d;
             next = null;
         }
+
+        public Node() {
+
+        }
     }
 
     public String toPrint() {
@@ -36,5 +40,19 @@ public class LinkList<T extends Comparable> {
             findLast.next = new Node(data);
         }
 
+    }
+
+    public void toRemove() {
+        Node<T> node = new Node<>();
+        if (head == null ) {
+            System.out.println("Link List is Empty.");
+        }
+        else {
+            Node secondLast = head;
+            while (secondLast.next.next != null) {
+                secondLast = secondLast.next;
+            }
+            secondLast.next = null;
+        }
     }
 }

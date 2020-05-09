@@ -23,5 +23,15 @@ public class LinkListTest {
         Assert.assertEquals("Datta Dhebe ", result);
     }
 
+    @Test
+    public void givenInteger_ShouldRemoveFromLinkList() {
+        LinkList<Integer> linkList = new LinkList();
+        linkList.toAdd(1);
+        linkList.toAdd(2);
+        linkList.toRemove();
+        String result = linkList.toPrint();
+        Assert.assertEquals("1 ", result);
+    }
+
 
 }
