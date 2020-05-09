@@ -33,5 +33,19 @@ public class LinkListTest {
         Assert.assertEquals("1 ", result);
     }
 
+    @Test
+    public void givenString_ShouldRemoveFromLinkList() {
+        LinkList<String> linkList = new LinkList();
+        linkList.toAdd("Datta");
+        linkList.toAdd("Dhebe");
+        linkList.toRemove();
+        String result = linkList.toPrint();
+        Assert.assertEquals("Datta ", result);
+    }
+
+
+
+
+
 
 }
