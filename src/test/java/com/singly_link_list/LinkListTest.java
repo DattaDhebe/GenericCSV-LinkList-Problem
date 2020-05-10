@@ -6,42 +6,31 @@ import org.junit.Test;
 public class LinkListTest {
 
     @Test
-    public void givenInteger_ShouldAddToLinkList() {
+    public void givenInteger_ShouldAddToLinkList_andReturnThatList() {
         LinkList<Integer> linkList = new LinkList();
-        linkList.toAdd(2);
-        linkList.toAdd(4);
-        String result = linkList.toPrint();
-        Assert.assertEquals("2 4 ", result);
+        linkList.add(2);
+        linkList.add(4);
+        Assert.assertEquals("[ 2, 4 ]", linkList.toString());
     }
 
     @Test
-    public void givenString_ShouldAddToLinkList() {
+    public void givenString_ShouldAddToLinkList_andReturnThatList() {
         LinkList<String> linkList = new LinkList();
-        linkList.toAdd("Datta");
-        linkList.toAdd("Dhebe");
-        String result = linkList.toPrint();
-        Assert.assertEquals("Datta Dhebe ", result);
+        linkList.add("Datta");
+        linkList.add("Dhebe");
+        Assert.assertEquals("[ Datta, Dhebe ]", linkList.toString());
     }
 
     @Test
-    public void givenInteger_ShouldRemoveFromLinkList() {
+    public void givenInteger_WhenRemove_shouldRemoveElement() {
         LinkList<Integer> linkList = new LinkList();
-        linkList.toAdd(1);
-        linkList.toAdd(2);
-        linkList.toRemove();
-        String result = linkList.toPrint();
-        Assert.assertEquals("1 ", result);
+        linkList.add(2);
+        linkList.add(4);
+        linkList.remove();
+        Assert.assertEquals("[ 2 ]", linkList.toString());
     }
 
-    @Test
-    public void givenString_ShouldRemoveFromLinkList() {
-        LinkList<String> linkList = new LinkList();
-        linkList.toAdd("Datta");
-        linkList.toAdd("Dhebe");
-        linkList.toRemove();
-        String result = linkList.toPrint();
-        Assert.assertEquals("Datta ", result);
-    }
+
 
 
 

@@ -1,14 +1,15 @@
 package com.singly_link_list;
 
 public class LinkList<T extends Comparable> {
-    Node head;
+    static Node head;
 
     public static class Node<T extends Comparable> {
         T data;
         Node next;
+
         Node(T d) {
-            data = d;
-            next = null;
+            this.data = d;
+            this.next = null;
         }
 
         public Node() {
@@ -16,23 +17,12 @@ public class LinkList<T extends Comparable> {
         }
     }
 
-    public String toPrint() {
-        String result = "";
-        Node findLast = head;
-        while ( findLast != null ){
-            result += findLast.data+" ";
-            System.out.println(findLast.data);
-            findLast = findLast.next;
-        }
-        return result;
-    }
 
-    public void toAdd(T data) {
+    public void add(T data) {
         Node<T> node = new Node<>(data);
-        if (head == null ) {
+        if (head == null) {
             this.head = node;
-        }
-        else {
+        } else {
             Node findLast = head;
             while (findLast.next != null) {
                 findLast = findLast.next;
@@ -42,12 +32,11 @@ public class LinkList<T extends Comparable> {
 
     }
 
-    public void toRemove() {
+    public void remove() {
         Node<T> node = new Node<>();
-        if (head == null ) {
+        if (head == null) {
             System.out.println("Link List is Empty.");
-        }
-        else {
+        } else {
             Node secondLast = head;
             while (secondLast.next.next != null) {
                 secondLast = secondLast.next;
@@ -55,4 +44,32 @@ public class LinkList<T extends Comparable> {
             secondLast.next = null;
         }
     }
+
+//    public <T extends Comparable> T toSearch(T data) {
+//        Node<T> node = new Node<>(data);
+//        Node findNode = head;
+//        if (head == null) {
+//            System.out.println("Link List is Empty.");
+//        } else {
+//
+//            while (findNode.next.next != data) {
+//                break;
+//            }
+//        }
+//        return (findNode.next);
+//    }
+
+    @Override
+    public String toString() {
+        StringBuilder element = new StringBuilder();
+        Node<T> findLast = head;
+        while (findLast.next != null) {
+            element.append(" ").append(findLast.data).append(",");
+            findLast = findLast.next;
+        }
+        element.append(" ").append(findLast.data).append(" ");
+        return "["+element+"]";
+    }
+
+
 }
