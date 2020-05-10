@@ -27,6 +27,25 @@ public class LinkList<T extends Comparable> {
         }
     }
 
+    public void insert(int pos, T item) {
+        Node<T> node = new Node<>(item);
+        if (head == null) {
+            this.head = node;
+            index++;
+        } else {
+            Node findPosition = head;
+            while (findPosition.next != null) {
+                index++;
+                if (index == pos) {
+                    findPosition.next = null;
+                    findPosition.next = new Node(item);
+                    findPosition.next = findPosition;
+                }
+                findPosition = findPosition.next;
+            }
+        }
+
+    }
 
 
     public static class Node<T extends Comparable> {

@@ -118,6 +118,16 @@ public class LinkListTest {
         Assert.assertEquals(3, linkList.index("Banana"));
     }
 
+    @Test
+    public void givenInsert_shouldAdd_elementToSpecificPosition() {
+        LinkList<Integer> linkList = new LinkList();
+        linkList.add(1);
+        linkList.append(2);
+        linkList.append(4);
+        linkList.insert(3, 3);
+        Assert.assertEquals("[ 1, 2, 3, 4]", linkList.head.toString());
+    }
+
 
 
 
