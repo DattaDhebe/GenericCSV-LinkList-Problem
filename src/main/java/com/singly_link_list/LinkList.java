@@ -3,6 +3,7 @@ package com.singly_link_list;
 public class LinkList<T extends Comparable> {
     static Node head;
     private int size = 0;
+    private int index = 0;
 
     public boolean isEmpty() {
         return (this.head == null);
@@ -11,6 +12,22 @@ public class LinkList<T extends Comparable> {
     public int size() {
         return size;
     }
+
+    public void append(T item) {
+        if (head == null) {
+            this.head = head;
+            size++;
+        } else {
+            Node findLast = head;
+            while (findLast.next != null) {
+                findLast = findLast.next;
+            }
+            findLast.next = new Node(item);
+            size++;
+        }
+    }
+
+
 
     public static class Node<T extends Comparable> {
         T data;
@@ -45,8 +62,13 @@ public class LinkList<T extends Comparable> {
 
     public Boolean search(T item) {
         try {
+            if (head == null) {
+                this.head = head;
+                index++;
+            }
             Node findElement = head;
             while (findElement.next != null) {
+                index++;
                 if (findElement.data == item) {
                     return true;
                 }
@@ -57,6 +79,10 @@ public class LinkList<T extends Comparable> {
             return true;
         }
 
+    }
+    public int index(T item) {
+        search(item);
+        return index;
     }
 
 

@@ -1,6 +1,7 @@
 package com.singly_link_list;
 
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
 
 public class LinkListTest {
@@ -80,5 +81,47 @@ public class LinkListTest {
         linkList.add(2);
         Assert.assertEquals(2,linkList.size());
     }
+
+    @Test
+    public void givenAppendInteger_shouldAdd_elementAtLast() {
+        LinkList<Integer> linkList = new LinkList<>();
+        linkList.add(1);
+        linkList.append(2);
+        Assert.assertEquals(2,linkList.size());
+    }
+
+    @Test
+    public void givenAppendString_whouldAdd_elementAtLast() {
+        LinkList<String> linkList = new LinkList();
+        linkList.add("Datta");
+        linkList.append("Dhebe");
+        Assert.assertEquals("[ Datta, Dhebe ]", linkList.toString());
+    }
+
+    @Test
+    public void givenIndexInteger_shouldReturn_positionOfElement() {
+        LinkList<Integer> linkList = new LinkList<>();
+        linkList.add(9);
+        linkList.add(7);
+        linkList.add(4);
+        linkList.add(3);
+        Assert.assertEquals(2,linkList.index(7));
+    }
+
+    @Test
+    public void givenIndexString_shouldReturn_positionOfElement() {
+        LinkList<String> linkList = new LinkList();
+        linkList.add("Apple");
+        linkList.append("Mango");
+        linkList.append("Banana");
+        linkList.append("Peach");
+        Assert.assertEquals(3, linkList.index("Banana"));
+    }
+
+
+
+
+
+
 
 }
