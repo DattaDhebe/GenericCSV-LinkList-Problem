@@ -18,8 +18,8 @@ public class LinkList<T extends Comparable> {
     }
 
 
-    public void add(T data) {
-        Node<T> node = new Node<>(data);
+    public void add(T item) {
+        Node<T> node = new Node<>(item);
         if (head == null) {
             this.head = node;
         } else {
@@ -27,15 +27,38 @@ public class LinkList<T extends Comparable> {
             while (findLast.next != null) {
                 findLast = findLast.next;
             }
-            findLast.next = new Node(data);
+            findLast.next = new Node(item);
+        }
+
+    }
+
+    public Boolean search(T item) {
+        try {
+            if (head == null) {
+                System.out.println("Empty list.");
+            } else {
+                Node findElement = head;
+                while (findElement.next != null) {
+                    if ( findElement == item )
+                        break;
+                    else
+                        findElement = findElement.next;
+                    if ( findElement.next == null)
+                        return false;
+                }
+                return true;
+            }
+            return false;
+        } catch (Exception NullPointerException) {
+            return false;
         }
 
     }
 
     public void remove() {
-        Node<T> node = new Node<>();
+
         if (head == null) {
-            System.out.println("Link List is Empty.");
+            System.out.println("Empty list.");
         } else {
             Node secondLast = head;
             while (secondLast.next.next != null) {
@@ -44,20 +67,6 @@ public class LinkList<T extends Comparable> {
             secondLast.next = null;
         }
     }
-
-//    public <T extends Comparable> T toSearch(T data) {
-//        Node<T> node = new Node<>(data);
-//        Node findNode = head;
-//        if (head == null) {
-//            System.out.println("Link List is Empty.");
-//        } else {
-//
-//            while (findNode.next.next != data) {
-//                break;
-//            }
-//        }
-//        return (findNode.next);
-//    }
 
     @Override
     public String toString() {
