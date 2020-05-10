@@ -1,7 +1,6 @@
 package com.singly_link_list;
 
 import org.junit.Assert;
-import org.junit.Rule;
 import org.junit.Test;
 
 public class LinkListTest {
@@ -46,8 +45,7 @@ public class LinkListTest {
         linkList.add(1);
         linkList.add(2);
         linkList.add(3);
-        boolean result = linkList.search(2);
-        Assert.assertTrue(result);
+        Assert.assertTrue(linkList.search(2));
     }
 
     @Test
@@ -56,8 +54,7 @@ public class LinkListTest {
         linkList.add(1);
         linkList.add(2);
         linkList.add(4);
-        boolean result = linkList.search(3);
-        Assert.assertFalse(result);
+        Assert.assertFalse(linkList.search(3));
     }
 
     @Test
@@ -125,7 +122,7 @@ public class LinkListTest {
         linkList.append(2);
         linkList.append(4);
         linkList.insert(3, 3);
-        Assert.assertEquals("[ 1, 2, 3, 4]", linkList.head.toString());
+        Assert.assertEquals("[ 1, 2, 3, 4]", linkList.toString());
     }
 
 

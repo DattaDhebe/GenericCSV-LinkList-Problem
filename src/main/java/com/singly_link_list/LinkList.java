@@ -36,12 +36,13 @@ public class LinkList<T extends Comparable> {
             Node findPosition = head;
             while (findPosition.next != null) {
                 index++;
+                findPosition = findPosition.next;
                 if (index == pos) {
                     findPosition.next = null;
                     findPosition.next = new Node(item);
                     findPosition.next = findPosition;
                 }
-                findPosition = findPosition.next;
+
             }
         }
 
