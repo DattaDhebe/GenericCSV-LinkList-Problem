@@ -3,6 +3,10 @@ package com.singly_link_list;
 public class LinkList<T extends Comparable> {
     static Node head;
 
+    public boolean isEmpty() {
+        return (this.head == null);
+    }
+
     public static class Node<T extends Comparable> {
         T data;
         Node next;
@@ -34,26 +38,21 @@ public class LinkList<T extends Comparable> {
 
     public Boolean search(T item) {
         try {
-            if (head == null) {
-                System.out.println("Empty list.");
-            } else {
-                Node findElement = head;
-                while (findElement.next != null) {
-                    if ( findElement == item )
-                        break;
-                    else
-                        findElement = findElement.next;
-                    if ( findElement.next == null)
-                        return false;
+            Node findElement = head;
+            while (findElement.next != null) {
+                if (findElement.data == item) {
+                    return true;
                 }
-                return true;
+                findElement = findElement.next;
             }
-            return false;
-        } catch (Exception NullPointerException) {
-            return false;
+            return  false;
+        } catch (NullPointerException e) {
+            return true;
         }
 
     }
+
+
 
     public void remove() {
 
