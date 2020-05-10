@@ -2,9 +2,14 @@ package com.singly_link_list;
 
 public class LinkList<T extends Comparable> {
     static Node head;
+    private int size = 0;
 
     public boolean isEmpty() {
         return (this.head == null);
+    }
+
+    public int size() {
+        return size;
     }
 
     public static class Node<T extends Comparable> {
@@ -26,12 +31,14 @@ public class LinkList<T extends Comparable> {
         Node<T> node = new Node<>(item);
         if (head == null) {
             this.head = node;
+            size++;
         } else {
             Node findLast = head;
             while (findLast.next != null) {
                 findLast = findLast.next;
             }
             findLast.next = new Node(item);
+            size++;
         }
 
     }
