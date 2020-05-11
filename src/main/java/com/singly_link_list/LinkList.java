@@ -28,24 +28,22 @@ public class LinkList<T extends Comparable> {
     }
 
     public void insert(int pos, T item) {
-        Node<T> node = new Node<>(item);
-        if (head == null) {
-            this.head = node;
+        Node node = head;
+        Node prev = null;
+        while (node.next != null) {
             index++;
-        } else {
-            Node findPosition = head;
-            while (findPosition.next != null) {
-                index++;
-                findPosition = findPosition.next;
-                if (index == pos) {
-                    findPosition.next = null;
-                    findPosition.next = new Node(item);
-                    findPosition.next = findPosition;
-                }
-
-            }
+            prev = node;
+            node = node.next;
         }
+        Node newNode = new Node();
+        newNode.data = item;
 
+        newNode.next = node;
+        if(index == 0){
+            head = newNode;
+        } else {
+            prev.next = newNode;
+        }
     }
 
 
@@ -107,7 +105,7 @@ public class LinkList<T extends Comparable> {
 
 
 
-    public void remove() {
+    public void pop() {
 
         if (head == null) {
             System.out.println("Empty list.");

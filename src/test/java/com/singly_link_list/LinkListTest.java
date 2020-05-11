@@ -22,24 +22,6 @@ public class LinkListTest {
     }
 
     @Test
-    public void givenRemoveInteger_WhenRemove_shouldRemoveLastElement() {
-        LinkList<Integer> linkList = new LinkList();
-        linkList.add(2);
-        linkList.add(4);
-        linkList.remove();
-        Assert.assertEquals("[ 2 ]", linkList.toString());
-    }
-
-    @Test
-    public void givenRemoveString_WhenRemove_shouldRemoveLastElement() {
-        LinkList<String> linkList = new LinkList();
-        linkList.add("Datta");
-        linkList.add("Dhebe");
-        linkList.remove();
-        Assert.assertEquals("[ Datta ]", linkList.toString());
-    }
-
-    @Test
     public void givenSearchItem_WhenSearch_ifPresent_shouldReturnTrue() {
         LinkList<Integer> linkList = new LinkList();
         linkList.add(1);
@@ -122,7 +104,25 @@ public class LinkListTest {
         linkList.append(2);
         linkList.append(4);
         linkList.insert(3, 3);
-        Assert.assertEquals("[ 1, 2, 3, 4]", linkList.toString());
+        Assert.assertEquals("[ 1, 2, 3, 4 ]", linkList.toString());
+    }
+
+    @Test
+    public void givenRemoveInteger_WhenRemove_shouldRemoveLastElement() {
+        LinkList<Integer> linkList = new LinkList();
+        linkList.add(2);
+        linkList.add(4);
+        linkList.pop();
+        Assert.assertEquals("[ 2 ]", linkList.toString());
+    }
+
+    @Test
+    public void givenRemoveString_WhenRemove_shouldRemoveLastElement() {
+        LinkList<String> linkList = new LinkList();
+        linkList.add("Datta");
+        linkList.add("Dhebe");
+        linkList.pop();
+        Assert.assertEquals("[ Datta ]", linkList.toString());
     }
 
 
