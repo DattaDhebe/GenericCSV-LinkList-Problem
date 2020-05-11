@@ -62,7 +62,7 @@ public class LinkList<T extends Comparable> {
 
 
     public void add(T item) {
-        Node<T> node = new Node<>(item);
+        Node<T> node = new Node(item);
         if (head == null) {
             this.head = node;
             size++;
@@ -126,6 +126,7 @@ public class LinkList<T extends Comparable> {
             findLast = findLast.next;
         }
         element.append(" ").append(findLast.data).append(" ");
+        System.out.println("["+element+"]");
         return "["+element+"]";
     }
 
