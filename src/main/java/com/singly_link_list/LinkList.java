@@ -46,6 +46,22 @@ public class LinkList<T extends Comparable> {
         }
     }
 
+    public void remove(T item) {
+        Node node = head;
+        Node prev = null;
+        while(node.next != null) {
+            if(node.data.equals(item)) {
+                break;
+            } else {
+                prev = node;
+                node = node.next;
+            }
+        }
+        node = node.next;
+        prev.next = node;
+        node = null;
+    }
+
     public static class Node<T extends Comparable> {
         T data;
         Node next;
@@ -86,7 +102,7 @@ public class LinkList<T extends Comparable> {
             Node findElement = head;
             while (findElement.next != null) {
                 index++;
-                if (findElement.data == item) {
+                if (findElement.data.equals(item)) {
                     return true;
                 }
                 findElement = findElement.next;
