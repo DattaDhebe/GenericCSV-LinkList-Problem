@@ -70,7 +70,7 @@ public class LinkListTest {
     }
 
     @Test
-    public void givenAppendString_whouldAdd_elementAtLast() {
+    public void givenAppendString_shouldAdd_elementAtLast() {
         LinkList<String> linkList = new LinkList();
         linkList.add("Datta");
         linkList.append("Dhebe");
@@ -124,11 +124,5 @@ public class LinkListTest {
         linkList.pop();
         Assert.assertEquals("[ Datta ]", linkList.toString());
     }
-
-
-
-
-
-
 
 }

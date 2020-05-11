@@ -46,7 +46,6 @@ public class LinkList<T extends Comparable> {
         }
     }
 
-
     public static class Node<T extends Comparable> {
         T data;
         Node next;
